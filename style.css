@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #111;
+    color: #000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 1. ГЛАВНАЯ СТРАНИЦА */
+.poster-page {
+    min-height: 100vh;
+    background: repeating-conic-gradient(
+        from 0deg,
+        #cc0000 0deg 15deg,
+        #f4f4f4 15deg 30deg
+    );
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poster-title {
+    font-family: 'Russo One', sans-serif;
+    color: #cc0000;
+    background-color: #000;
+    padding: 15px 30px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 4px solid #cc0000;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 8px 8px 0px #000;
+}
+
+.poster-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 5px solid #000;
+    box-shadow: 12px 12px 0px #cc0000;
+    padding: 20px;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Левая часть: убираем лишнее черное поле */
+.poster-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    border: 3px solid #000;
+    padding: 15px;
+    overflow: hidden;
+}
+
+/* Фото Маяковского на ПК возвращает полноценный крупный размер */
+.mayakovsky-hero {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(140%);
+}
+
+.poster-right {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 3px solid #000;
+}
+
+.list-title {
+    font-family: 'Russo One', sans-serif;
+    color: #cc0000;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #000;
+    padding-bottom: 5px;
+}
+
+.poem-list {
+    list-style: none;
+}
+
+.poem-list li {
+    margin-bottom: 15px;
+}
+
+.poem-list a {
+    display: block;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    text-decoration: none;
+    background-color: #fff;
+    padding: 10px 15px;
+    border: 2px solid #000;
+    transition: all 0.2s ease;
+    box-shadow: 4px 4px 0px #cc0000;
+}
+
+.poem-list a:hover {
+    background-color: #cc0000;
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
+}
+
+/* Кнопки переключения страниц */
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.nav-btn {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #cc0000;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #cc0000;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.nav-btn:hover {
+    background-color: #cc0000;
+    color: #fff;
+    box-shadow: 4px 4px 0px #000;
+}
+
+/* 2. СТРАНИЦА СТИХОТВОРЕНИЯ */
+.poem-page {
+    position: relative;
+    min-height: 100vh;
+    background: url('paper-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head-left {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 140px;
+    height: auto;
+    filter: grayscale(100%) contrast(120%);
+    z-index: 10;
+    border: 2px solid #000;
+}
+
+.head-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 140px;
+    height: auto;
+    filter: grayscale(100%) contrast(120%);
+    z-index: 10;
+    border: 2px solid #000;
+}
+
+.back-btn {
+    font-family: 'Russo One', sans-serif;
+    background-color: #cc0000;
+    color: #fff;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 30px;
+    box-shadow: 4px 4px 0px #000;
+    z-index: 20;
+}
+
+.back-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.poem-container {
+    max-width: 650px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.poem-heading {
+    font-family: 'Russo One', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #111;
+}
+
+.poem-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    white-space: pre-line;
+    color: #222;
+}
+
+/* ==========================================
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ТЕЛЕФОНОВ
+   ========================================== */
+@media screen and (max-width: 900px) {
+    /* На мобильном: портрет Маяковского встает НАД стихами */
+    .poster-content {
+        flex-direction: column !important;
+    }
+
+    .poster-left {
+        order: 1 !important;
+        width: 100%;
+    }
+
+    .poster-right {
+        order: 2 !important;
+        width: 100%;
+    }
+
+    .mayakovsky-hero {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .poster-title {
+        font-size: 1.4rem;
+        padding: 10px 15px;
+    }
+
+    /* На мобильном: убираем верхние портреты на странице стиха */
+    .head-left,
+    .head-right {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    .poem-container {
+        padding: 20px;
+        margin-top: 10px;
+    }
+
+    .poem-heading {
+        font-size: 1.4rem;
+    }
+}
